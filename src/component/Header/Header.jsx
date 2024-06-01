@@ -9,6 +9,8 @@ function Header() {
     const dispatch = useDispatch()
 
     const authStatus = useSelector((state) => state?.auth.status)
+
+    console.log(authStatus)
     const navItems = [
         {
             name: 'Home',
@@ -46,7 +48,7 @@ function Header() {
                         <Link
                             to='/'
                         >
-                            <Logo />
+                            <Logo width='70px' />
                         </Link>
                     </div>
                     <ul className=' flex ml-auto '>
@@ -66,7 +68,7 @@ function Header() {
                         {
                             authStatus && (
                                 <li>
-                                    lougout
+                                    <LogoutButton />
                                 </li>
                             )
                         }
