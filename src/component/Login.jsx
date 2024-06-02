@@ -14,9 +14,12 @@ function Login() {
     const [error, setError] = useState("")
 
     const login = async (data) => {
+        console.log('hello')
         setError("")
         try {
+            console.log(error)
             const session = await authService.login(data)
+            console.log(session)
             if (session) {
                 const userData = await authService.getCurrentUser()
                 if (userData) dispatch(authLogin(userData));
