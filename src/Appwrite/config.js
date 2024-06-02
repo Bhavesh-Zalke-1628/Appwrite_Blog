@@ -79,17 +79,19 @@ export class Service {
             )
         } catch (error) {
             throw error
-            return false
         }
     }
 
     async getPosts(quires = [Query.equal("status", "active")]) {
         try {
-            return await this.databases.listDocuments(
+
+            const data = await this.databases.listDocuments(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
                 quires
             )
+            console.log(data)
+            return data
         } catch (error) {
             throw error
             return false

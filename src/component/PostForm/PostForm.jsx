@@ -3,7 +3,7 @@
 import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "..";
-import appwriteService from '../../Appwrite//config'
+import appwriteService from '../../Appwrite/config'
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -32,10 +32,10 @@ export default function PostForm({ post }) {
                 ...data,
                 featuredImage: file ? file.$id : undefined,
             });
-
-            if (dbPost) {
-                navigate(`/post/${dbPost.$id}`);
-            }
+            console.log(dbPost)
+            // if (dbPost) {
+            //     navigate(`/post/${dbPost.$id}`);
+            // }
         } else {
             const file = await appwriteService.uploadFile(data.image[0]);
 
@@ -43,7 +43,7 @@ export default function PostForm({ post }) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
                 const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
-
+                console.log('created dbPost', dbPost)
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
                 }
