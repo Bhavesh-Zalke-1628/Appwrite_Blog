@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import authService from '../Appwrite/auth.js'
 import { Link, useNavigate } from 'react-router-dom'
-import { login } from '../store/authSlice'
+import { login } from '../store/authSlice.js'
 import { Button, Input, Logo } from './index.js'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
+import authService from '../Appwrite/auth.js'
 
 function Signup() {
     const navigate = useNavigate()

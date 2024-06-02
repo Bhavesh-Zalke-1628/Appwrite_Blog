@@ -4,8 +4,13 @@ import Container from "./container/Container";
 import LogoutButton from "./Header/LogoutButton";
 import Logo from "./Logo";
 import RTE from '../component/RTE'
+import Button from '../component/Button'
+import Input from '../component/Input'
 import Signup from "./Signup";
-import LogIn from './Login'
+import Login from "./Login";
+import Post from './Post'
+import PostForm from './PostForm/PostForm'
+import PostCard from "./PostCard";
 export {
     Header,
     Footer,
@@ -13,6 +18,11 @@ export {
     LogoutButton,
     Container,
     RTE,
+    Button,
+    Input,
+    Login,
     Signup,
-    LogIn
+    Post,
+    PostForm,
+    PostCard
 }
