@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import appwriteService from "../Appwrite/config";
 import { Container, PostCard } from '../component'
+import { Link } from 'react-router-dom';
 
 function Home() {
     const [posts, setPosts] = useState([])
@@ -18,10 +19,14 @@ function Home() {
             <div className="w-full py-8 mt-4 text-center">
                 <Container>
                     <div className="flex flex-wrap">
-                        <div className="p-2 w-full">
-                            <h1 className="text-2xl font-bold hover:text-gray-500">
-                                Login to read posts
-                            </h1>
+                        <div className="p-2 h-[42vh] w-full flex items-center justify-center">
+                            <Link
+                                to='/login'
+                            >
+                                <h1 className="text-2xl cursor-pointer text-center font-bold hover:text-gray-600 transition-all ease-in-out duration-500">
+                                    Login to read posts
+                                </h1>
+                            </Link>
                         </div>
                     </div>
                 </Container>
@@ -31,7 +36,7 @@ function Home() {
     return (
         <div className='w-full py-8'>
             <Container>
-                <div className='flex flex-wrap'>
+                <div className='flex sm:flex items-center justify-center'>
                     {posts.map((post) => (
                         <div key={post.$id} className='p-2 w-1/4'>
                             <PostCard {...post} />

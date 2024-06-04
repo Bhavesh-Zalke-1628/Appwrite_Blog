@@ -50,13 +50,13 @@ function Header() {
                             <Logo width='70px' />
                         </Link>
                     </div>
-                    <ul className=' flex ml-auto '>
+                    <ul className=' flex ml-auto  '>
                         {
                             navItems.map((item) =>
                                 item.active ? (
                                     <li key={item.name}>
                                         <button
-                                            className=' inline-block px-6 py-2 duration-300 hover:bg-blue-100 rounded-full'
+                                            className=' text-green-300 hover:text-black inline-block px-6 ml-2 py-2 duration-300 hover:bg-blue-100 rounded-full font-semibold text-lg border'
                                             onClick={() => navigate(item.slug)}
                                         >
                                             {item.name}
@@ -66,7 +66,9 @@ function Header() {
                             )}
                         {
                             authStatus && (
-                                <li>
+                                <li
+                                    className='  inline-block ml-2 duration-300 hover:bg-blue-400 hover:text-red-500 hover:border-none rounded-full font-semibold text-lg border'
+                                >
                                     <LogoutButton />
                                 </li>
                             )
