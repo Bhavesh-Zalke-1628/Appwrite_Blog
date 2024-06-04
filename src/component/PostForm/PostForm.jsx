@@ -1,9 +1,7 @@
-
-
 import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "..";
-import appwriteService from '../../Appwrite/config'
+import appwriteService from "../../Appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -32,10 +30,10 @@ export default function PostForm({ post }) {
                 ...data,
                 featuredImage: file ? file.$id : undefined,
             });
-            console.log(dbPost)
-            // if (dbPost) {
-            //     navigate(`/post/${dbPost.$id}`);
-            // }
+
+            if (dbPost) {
+                navigate(`/post/${dbPost.$id}`);
+            }
         } else {
             const file = await appwriteService.uploadFile(data.image[0]);
 
@@ -43,7 +41,7 @@ export default function PostForm({ post }) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
                 const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
-                console.log('created dbPost', dbPost)
+
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
                 }
@@ -90,7 +88,6 @@ export default function PostForm({ post }) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="w-1/3 px-2">
@@ -116,11 +113,11 @@ export default function PostForm({ post }) {
                     className="mb-4"
                     {...register("status", { required: true })}
                 />
-
                 <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>
         </form>
+
     );
 }
