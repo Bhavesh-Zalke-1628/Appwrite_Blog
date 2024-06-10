@@ -56,7 +56,7 @@ function Header() {
                                 item.active ? (
                                     <li key={item.name}>
                                         <button
-                                            className=' text-green-300 hover:text-black inline-block px-6 ml-2 py-2 duration-300 hover:bg-blue-100 rounded-full font-semibold text-lg border'
+                                            className=' text-green-300 hover:text-black inline-block px-6 ml-2 py-2 hover:bg-blue-100 transition-all ease-in-out duration-300 rounded-full font-semibold text-lg border'
                                             onClick={() => navigate(item.slug)}
                                         >
                                             {item.name}

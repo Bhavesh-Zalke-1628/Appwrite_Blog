@@ -24,6 +24,8 @@ function App() {
       .finally(() => { setLoading(false) })
 
   }, []);
+
+
   return !loading ? (
     <div className=' min-h-screen flex flex-wrap justify-between bg-gray-400'>
       <div className=' w-full block'>
@@ -31,7 +33,7 @@ function App() {
         <main>
           <Outlet />
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   ) : null
